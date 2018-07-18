@@ -24,4 +24,5 @@ public class AppModule {
     Application provideApplication() {
         return mApplication;
     }
+
 }

@@ -25,7 +25,7 @@ public class DataRepository implements DataSource {
 
     @Override
     public Single<retrofit2.Response<CityListResponse>> requestCityList() {
-        return mLocalRepository.getNews();
-//        return mRemoteRepository.getNews();
+//        return mLocalRepository.getNews();
+        return mRemoteRepository.getNews();
     }
 }

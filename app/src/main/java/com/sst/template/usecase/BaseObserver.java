@@ -1,4 +1,6 @@
-package com.sst.template.service;
+package com.sst.template.usecase;
+
+import com.sst.template.service.NetworkError;
 
 import io.reactivex.observers.DisposableSingleObserver;
 import retrofit2.Response;
@@ -7,7 +9,7 @@ import retrofit2.Response;
  * @author LongHV.
  */
 
-public abstract class BaseCallback<T> extends DisposableSingleObserver<retrofit2.Response<T>> {
+public abstract class BaseObserver<T> extends DisposableSingleObserver<retrofit2.Response<T>> {
 
 
     public abstract void onSuccessfulResponse(T response);

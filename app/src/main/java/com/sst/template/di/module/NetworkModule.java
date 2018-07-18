@@ -1,4 +1,4 @@
-package com.sst.template.service;
+package com.sst.template.di.module;
 
 import android.app.Application;
 
@@ -7,6 +7,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.sst.template.data.local.LocalRepository;
+import com.sst.template.service.ApiService;
+import com.sst.template.service.NetworkService;
 
 import java.io.IOException;
 

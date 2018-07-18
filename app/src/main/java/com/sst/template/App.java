@@ -5,7 +5,7 @@ import android.app.Application;
 import com.sst.template.di.component.DaggerMainComponent;
 import com.sst.template.di.module.AppModule;
 import com.sst.template.di.component.MainComponent;
-import com.sst.template.service.NetworkModule;
+import com.sst.template.di.module.NetworkModule;
 
 /**
  * @author LongHV.

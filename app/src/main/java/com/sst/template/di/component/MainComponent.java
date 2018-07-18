@@ -1,8 +1,8 @@
 package com.sst.template.di.component;
 
 import com.sst.template.di.module.AppModule;
-import com.sst.template.service.NetworkModule;
-import com.sst.template.ui.home.HomeActivity;
+import com.sst.template.di.module.NetworkModule;
+import com.sst.template.view.activity.home.HomeActivity;
 
 import javax.inject.Singleton;
 
