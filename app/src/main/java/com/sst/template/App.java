@@ -19,10 +19,11 @@ public class App extends Application {
         super.onCreate();
         mainComponent = DaggerMainComponent.builder()
                 .appModule(new AppModule(this))
-                .networkModule(new NetworkModule(BuildConfig.BASEURL)).build();
+                .networkModule(new NetworkModule(BuildConfig.BASE_URL)).build();
     }
 
     public MainComponent getNetWorkComponent() {
         return mainComponent;
     }
+
 }

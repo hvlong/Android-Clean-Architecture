@@ -23,6 +23,25 @@ public class GetCityListUseCase extends UseCase<CityListResponse, Void> {
 
     @Override
     Single<Response<CityListResponse>> buildUseCaseObservable(Void aVoid) {
-        return this.mDataRepository.requestCityList();
+        return null;
     }
+
+//    @Override
+//    Single<BodyErrorResponse<CityListResponse>> buildUseCaseObservable(Void aVoid) {
+//        return this.mDataRepository.requestCityList();
+//    }
+
+//    public static final class Params {
+//
+//        private final int userId;
+//
+//        private Params(int userId) {
+//            this.userId = userId;
+//        }
+//
+//        public static Params forUser(int userId) {
+//            return new Params(userId);
+//        }
+//    }
+
 }

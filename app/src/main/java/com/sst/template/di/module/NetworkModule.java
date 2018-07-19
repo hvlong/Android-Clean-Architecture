@@ -7,8 +7,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.sst.template.data.local.LocalRepository;
-import com.sst.template.service.ApiService;
-import com.sst.template.service.NetworkService;
+import com.sst.template.data.remote.network.ApiService;
+import com.sst.template.data.remote.network.NetworkService;
 
 import java.io.IOException;
 

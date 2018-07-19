@@ -1,10 +1,10 @@
 package com.sst.template.view.activity.home;
 
-import com.sst.template.base.BasePresenter;
-import com.sst.template.models.CityListResponse;
+import com.sst.template.data.remote.network.NetworkError;
+import com.sst.template.models.MovieListResponse;
+import com.sst.template.usecase.GetMovieListUseCase;
+import com.sst.template.view.base.BasePresenter;
 import com.sst.template.usecase.BaseObserver;
-import com.sst.template.service.NetworkError;
-import com.sst.template.usecase.GetCityListUseCase;
 
 import javax.inject.Inject;
 
@@ -12,34 +12,36 @@ import javax.inject.Inject;
  * @author LongHV.
  */
 
-public class HomePresenter extends BasePresenter<HomeView> {
+public class HomePresenter extends BasePresenter<HomeView> implements HomeContract {
 
-    private GetCityListUseCase getCityListUseCase;
+    private GetMovieListUseCase mGetMovieListUseCase;
 
     @Inject
-    HomePresenter(GetCityListUseCase getCityListUseCase) {
-        this.getCityListUseCase = getCityListUseCase;
+    HomePresenter(GetMovieListUseCase getMovieListUseCase) {
+        this.mGetMovieListUseCase = getMovieListUseCase;
     }
 
     @Override
     public void unSubscribe() {
-        this.getCityListUseCase.dispose();
+        this.mGetMovieListUseCase.dispose();
     }
 
-    void getCityListData() {
-        getView().onShowLoading();
-        this.getCityListUseCase.execute(new BaseObserver<CityListResponse>() {
+    @Override
+    public void getMovieListData() {
+        getView().showLoading();
+        this.mGetMovieListUseCase.execute(new BaseObserver<MovieListResponse>() {
             @Override
-            public void onSuccessfulResponse(CityListResponse response) {
-                getView().onHideLoading();
-                getView().initializeCityList(response);
+            public void onSuccessfulResponse(MovieListResponse response) {
+                getView().hideLoading();
+                getView().initializeMovieList(response);
             }
 
             @Override
-            public void onFailure(NetworkError error) {
-                getView().onHideLoading();
-            }
-        }, null);
-    }
+            public void onFailure(NetworkError networkError) {
+                getView().hideLoading();
+                handleApiError(networkError);
 
+            }
+        }, GetMovieListUseCase.Params.forYearMovie(2000));
+    }
 }

@@ -1,7 +1,6 @@
-package com.sst.template.service;
+package com.sst.template.data.remote.network;
 
-
-import com.sst.template.models.CityListResponse;
+import com.sst.template.models.MovieListResponse;
 
 import javax.inject.Inject;
 
@@ -22,8 +21,8 @@ public class ApiService {
         this.networkService = networkService;
     }
 
-    public Single<Response<CityListResponse>> getCityList() {
-        return networkService.getCityList();
+    public Single<Response<MovieListResponse>> getMovieList(int year) {
+        return networkService.getMovieList(year);
     }
 
 }

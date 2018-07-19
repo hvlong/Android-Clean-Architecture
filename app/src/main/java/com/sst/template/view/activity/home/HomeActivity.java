@@ -4,8 +4,8 @@ import android.util.Log;
 
 import com.sst.template.App;
 import com.sst.template.R;
-import com.sst.template.models.CityListResponse;
-import com.sst.template.view.activity.BaseActivity;
+import com.sst.template.models.MovieListResponse;
+import com.sst.template.view.base.BaseActivity;
 
 import javax.inject.Inject;
 
@@ -22,7 +22,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     @Override
     protected void initializePresenter() {
-        super.presenter = mPresenter;
+        super.mPresenter = mPresenter;
         mPresenter.bindView(this);
     }
 
@@ -33,12 +33,11 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     @Override
     public void initialize() {
-        mPresenter.getCityListData();
+        mPresenter.getMovieListData();
     }
 
     @Override
-    public void initializeCityList(CityListResponse cityListResponseList) {
-        Log.d("longhv", "cityListResponseList" + cityListResponseList.getMessage());
+    public void initializeMovieList(MovieListResponse movieListResponse) {
+        Log.d("longhv", "cityListResponseList" + movieListResponse.movieList.size());
     }
-
 }
