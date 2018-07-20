@@ -1,6 +1,6 @@
 package com.sst.template.data.local;
 
-import com.sst.template.models.CityListResponse;
+import com.sst.template.models.MovieListResponse;
 
 import javax.inject.Inject;
 
@@ -18,15 +18,13 @@ public class LocalRepository {
     public LocalRepository() {
     }
 
-    public Single<retrofit2.Response<CityListResponse>> getNews() {
-        return Single.create(new SingleOnSubscribe<Response<CityListResponse>>() {
+    public Single<retrofit2.Response<MovieListResponse>> getMovieList() {
+        return Single.create(new SingleOnSubscribe<Response<MovieListResponse>>() {
             @Override
-            public void subscribe(SingleEmitter<Response<CityListResponse>> e) throws Exception {
-                CityListResponse cityListResponse = new CityListResponse();
-                cityListResponse.setData(null);
-                cityListResponse.setStatus(100);
-                cityListResponse.setMessage("Successful");
-                Response<CityListResponse> response = Response.success(cityListResponse);
+            public void subscribe(SingleEmitter<Response<MovieListResponse>> e) throws Exception {
+                MovieListResponse movieListResponse = new MovieListResponse();
+                movieListResponse.id = 1;
+                Response<MovieListResponse> response = Response.success(movieListResponse);
                 e.onSuccess(response);
             }
         });

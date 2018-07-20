@@ -9,20 +9,20 @@ import com.google.gson.annotations.Expose;
 public class Movie {
 
     @Expose
-    public String description;
+    public String poster_path;
     @Expose
-    public int favorite_count;
+    public boolean adult;
+    @Expose
+    public String overview;
+    @Expose
+    public String release_date;
     @Expose
     public int id;
     @Expose
-    public String item_count;
+    public String vote_average;
     @Expose
-    public String iso_639_1;
+    public String title;
     @Expose
-    public String list_type;
-    @Expose
-    public String name;
-    @Expose
-    public String poster_path;
+    public String original_title;
 
 }

@@ -3,6 +3,8 @@ package com.sst.template.view.base;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.sst.template.utils.CommonUtils;
@@ -16,7 +18,7 @@ import butterknife.Unbinder;
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseView {
 
-    public BasePresenter mPresenter;
+    public BasePresenter basePresenter;
     private Unbinder mUnbinder;
     private ProgressDialog mProgressDialog;
 
@@ -58,14 +60,26 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         onError(getString(resId));
     }
 
+    /**
+     * Adds a {@link Fragment} to this activity's layout.
+     *
+     * @param containerViewId The container view to where add the fragment.
+     * @param fragment The fragment to be added.
+     */
+    protected void addFragment(int containerViewId, Fragment fragment) {
+        final FragmentTransaction fragmentTransaction = this.getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(containerViewId, fragment);
+        fragmentTransaction.commit();
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         mUnbinder.unbind();
-        if (mPresenter != null) {
-            mPresenter.unSubscribe();
-            mPresenter.unBindView();
-            mPresenter = null;
+        if (basePresenter != null) {
+            basePresenter.unSubscribe();
+            basePresenter.unBindView();
+            basePresenter = null;
         }
     }
 }

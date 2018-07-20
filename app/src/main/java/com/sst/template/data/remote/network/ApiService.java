@@ -22,7 +22,7 @@ public class ApiService {
     }
 
     public Single<Response<MovieListResponse>> getMovieList(int year) {
-        return networkService.getMovieList(year);
+        return networkService.getMovieList();
     }
 
 }

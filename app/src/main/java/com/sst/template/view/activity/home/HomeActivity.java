@@ -1,15 +1,17 @@
 package com.sst.template.view.activity.home;
 
+import android.content.Intent;
 import android.util.Log;
 
 import com.sst.template.App;
 import com.sst.template.R;
 import com.sst.template.models.MovieListResponse;
+import com.sst.template.view.activity.detail.DetailActivity;
 import com.sst.template.view.base.BaseActivity;
 
 import javax.inject.Inject;
 
-public class HomeActivity extends BaseActivity implements HomeView {
+public class HomeActivity extends BaseActivity implements HomeContract.View {
 
     @Inject
     HomePresenter mPresenter;
@@ -22,7 +24,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     @Override
     protected void initializePresenter() {
-        super.mPresenter = mPresenter;
+        super.basePresenter = mPresenter;
         mPresenter.bindView(this);
     }
 
@@ -39,5 +41,6 @@ public class HomeActivity extends BaseActivity implements HomeView {
     @Override
     public void initializeMovieList(MovieListResponse movieListResponse) {
         Log.d("longhv", "cityListResponseList" + movieListResponse.movieList.size());
+        startActivity(new Intent(HomeActivity.this, DetailActivity.class));
     }
 }

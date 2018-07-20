@@ -1,6 +1,7 @@
 package com.sst.template.data.remote;
 
 import com.sst.template.data.remote.network.NetworkService;
+import com.sst.template.models.Movie;
 import com.sst.template.models.MovieListResponse;
 
 import javax.inject.Inject;
@@ -25,7 +26,12 @@ public class RemoteRepository implements RemoteSource{
 
     @Override
     public Single<Response<MovieListResponse>> getMovieList(int year) {
-        return networkService.getMovieList(year);
+        return networkService.getMovieList();
+    }
+
+    @Override
+    public Single<Response<Movie>> getMovieDetail(int id) {
+        return networkService.getDetailMovie(id);
     }
 
 }

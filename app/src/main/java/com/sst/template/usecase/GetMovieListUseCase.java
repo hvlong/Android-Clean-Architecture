@@ -18,7 +18,6 @@ public class GetMovieListUseCase extends UseCase<MovieListResponse, GetMovieList
 
     @Inject
     GetMovieListUseCase(DataRepository dataRepository) {
-        super();
         this.mDataRepository = dataRepository;
     }
 

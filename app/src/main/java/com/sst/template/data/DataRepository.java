@@ -2,6 +2,7 @@ package com.sst.template.data;
 
 import com.sst.template.data.local.LocalRepository;
 import com.sst.template.data.remote.RemoteRepository;
+import com.sst.template.models.Movie;
 import com.sst.template.models.MovieListResponse;
 
 import javax.inject.Inject;
@@ -27,6 +28,11 @@ public class DataRepository implements DataSource {
     @Override
     public Single<Response<MovieListResponse>> requestMovieList(int year) {
         return mRemoteRepository.getMovieList(year);
+    }
+
+    @Override
+    public Single<Response<Movie>> requestMovieDetail(int id) {
+        return mRemoteRepository.getMovieDetail(id);
     }
 
 }

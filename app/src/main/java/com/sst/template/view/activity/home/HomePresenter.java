@@ -12,7 +12,7 @@ import javax.inject.Inject;
  * @author LongHV.
  */
 
-public class HomePresenter extends BasePresenter<HomeView> implements HomeContract {
+public class HomePresenter extends BasePresenter<HomeContract.View> implements HomeContract.Presenter {
 
     private GetMovieListUseCase mGetMovieListUseCase;
 
